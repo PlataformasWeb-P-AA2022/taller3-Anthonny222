@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Problema 2</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
+		<script>
+			$(function () {
+				$("#fecha").datepicker();
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<h2>EJEMPLO</h2>
+		<div class="columns">
+			<div class="column uno">
+				<p id="nombre">Nombre</p>
+				<input id="nombre1" type="text">
+				<p id="apellido">Apellido</p>
+				<input id="apellido1" type="text">
+				<p id="fecha">Fecha</p>
+				<input id="fecha1" type="date">
+				<button type="submit" onclick="mostrarmensajes()">Generar Mensaje</button>
+			</div>
+			<div class="column dos">
+				<p></p>
+				<p id="mensajeFinal"></p>
+				<h2 id="datos_nombre" ></h2>
+				<h2 id="datos_apellido" ></h2>
+				<h2 id="datos_fecha" ></h2>
+			</div>
+		</div>
+	</body>
+	<script>
+		function mostrarmensajes() {
+			console.log(document.getElementById("nombre1").value)
+			console.log(document.getElementById("apellido1").value)
+			console.log(document.getElementById("fecha1").value)
+
+			document.getElementById("mensajeFinal").append("Mensaje Final")
+			document.getElementById("datos_nombre").append(document.getElementById("nombre1").value)
+			document.getElementById("datos_apellido").append(document.getElementById("apellido1").value)
+			document.getElementById("datos_fecha").append(document.getElementById("fecha1").value)
+		}
+	</script>

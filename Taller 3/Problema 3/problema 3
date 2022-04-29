@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Problema 3</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+  <h1>Países</h1>
+  <p id="obtenerDatos">
+  </p>
+  <button type="submit" id="obtener">Obtener Datos</button>
+
+  <script>
+    $(document).ready(function () {
+      var url = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json";
+      $("#obtener").click(function () {
+        $.ajax({
+          dataType: 'json',
+          url: url
+        }).then(function (data) {
+          for (var i = 1; i < data.length; i++) {
+            $('#obtenerDatos').append((data[i])['CLDR display name'] + "<h2>CLDR display name: </h2>" + (data[i])['CLDR display name'] + "<b>Capital: </b> <b>------</b> " 
+            + (data[i])['Capital'] + "<b>FIPS: </b> <b>------</b> " + (data[i])['FIPS'] + "<b>FIFA: </b> <b>------</b> " + (data[i])['FIFA'] + "<b>Continent: </b> <b>------</b> " 
+            + (data[i])['Continent'] + "<b>Languages: <b> <b>------</b>" + (data[i])['Languages'] + "<b>Geoname ID: </b> <b>------</b> "+ (data[i])['Geoname ID'] + 
+            "<b>Vehicles: </b> <b>------</b> " + (data[i])['Vehicles']);
+          }
+        })
+      });
+  
+    });
+  </script>
+
+</body>
+</html>
